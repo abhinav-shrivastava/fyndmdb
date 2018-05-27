@@ -4,7 +4,7 @@ from django.db import models
 # Contains name, imdb score, genre, director and 99popularity of a movie
 
 class Movie(models.Model):
-  name = models.CharField(max_length=200)
+  name = models.CharField(max_length=200, unique=True)
   director =  models.CharField(max_length=200)
   imdb_score = models.DecimalField(max_digits=4, decimal_places=1)
   popularity = models.DecimalField(max_digits=4, decimal_places=1)
