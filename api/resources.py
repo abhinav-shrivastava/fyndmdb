@@ -1,6 +1,7 @@
 import json
 
 from tastypie.resources import ModelResource, ALL
+from tastypie.authentication import ApiKeyAuthentication
 from api.models import Movie
 
 class MovieResource(ModelResource):
@@ -8,6 +9,7 @@ class MovieResource(ModelResource):
         queryset = Movie.objects.all()
         resource_name = 'movie'
         excludes = ['created_at', 'updated_at']
+        authentication = ApiKeyAuthentication()
         filtering = {
             'name': ALL,
         }
